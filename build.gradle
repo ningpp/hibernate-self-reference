@@ -1,0 +1,25 @@
+plugins {
+	id 'java'
+}
+
+group = 'me.ningpp.demos'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.hibernate.orm:hibernate-core:6.0.0-SNAPSHOT'
+	implementation 'org.hibernate.orm:hibernate-jpamodelgen:6.0.0-SNAPSHOT'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
+    implementation 'com.h2database:h2:1.4.200'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+}
+
+test {
+    useJUnitPlatform()
+}

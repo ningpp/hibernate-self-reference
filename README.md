@@ -1,3 +1,12 @@
+gradle 
+
+```
+gradlew test --info
+```
+
+
+
+
 
 eclipse setting:
 
