@@ -1,3 +1,7 @@
+update:  test sucess on hibernate-6.0.0.Final 
+
+
+
 update: test success(https://github.com/hibernate/hibernate-orm/commit/6169a60ecdf19e75f6b145449c8d0abb606439b1)
 
 gradle 

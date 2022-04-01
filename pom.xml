@@ -6,13 +6,13 @@
     <artifactId>hibernate-self-reference</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- dependencies versions -->
-        <hibernate6.version>6.0.0.CR2</hibernate6.version>
+        <hibernate6.version>6.0.0.Final</hibernate6.version>
         <jaxb.version>3.0.2</jaxb.version>
     </properties>
 
@@ -61,7 +61,7 @@
                 <plugin>
                     <groupId>de.thetaphi</groupId>
                     <artifactId>forbiddenapis</artifactId>
-                    <version>3.2</version>
+                    <version>3.3</version>
                 </plugin>
             </plugins>
         </pluginManagement>
