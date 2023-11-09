@@ -8,13 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "middle_table4")
-public class MiddleTable4 {
+@Table(name = "middle_table6")
+public class MiddleTable6 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "middle4_id", nullable = false)
-    private Integer middle4Id;
+    @Column(name = "middle6_id", nullable = false)
+    private Integer middle6Id;
+
+    @Column(name = "order_column")
+    private Integer orderColumn;
 
     @Column(name = "main_id1")
     private Integer mainId1;
@@ -31,11 +34,11 @@ public class MiddleTable4 {
     @Column(name = "dest4_id3")
     private Integer dest4Id3;
 
-    public MiddleTable4() {
+    public MiddleTable6() {
     }
 
-    public MiddleTable4(Integer middle4Id, Integer mainId1, Integer mainId2, Integer dest4Id1, Integer dest4Id2, Integer dest4Id3) {
-        this.middle4Id = middle4Id;
+    public MiddleTable6(Integer middle6Id, Integer mainId1, Integer mainId2, Integer dest4Id1, Integer dest4Id2, Integer dest4Id3) {
+        this.middle6Id = middle6Id;
         this.mainId1 = mainId1;
         this.mainId2 = mainId2;
         this.dest4Id1 = dest4Id1;
@@ -43,12 +46,20 @@ public class MiddleTable4 {
         this.dest4Id3 = dest4Id3;
     }
 
-    public Integer getMiddle4Id() {
-        return middle4Id;
+    public Integer getMiddle6Id() {
+        return middle6Id;
     }
 
-    public void setMiddle4Id(Integer middle4Id) {
-        this.middle4Id = middle4Id;
+    public void setMiddle6Id(Integer middle4Id) {
+        this.middle6Id = middle4Id;
+    }
+
+    public Integer getOrderColumn() {
+        return orderColumn;
+    }
+
+    public void setOrderColumn(Integer orderColumn) {
+        this.orderColumn = orderColumn;
     }
 
     public Integer getMainId1() {
@@ -89,5 +100,17 @@ public class MiddleTable4 {
 
     public void setDest4Id3(Integer dest4Id3) {
         this.dest4Id3 = dest4Id3;
+    }
+
+    @Override
+    public String toString() {
+        return "MiddleTable6{" +
+                "middle6Id=" + middle6Id +
+                ", mainId1=" + mainId1 +
+                ", mainId2=" + mainId2 +
+                ", dest4Id1=" + dest4Id1 +
+                ", dest4Id2=" + dest4Id2 +
+                ", dest4Id3=" + dest4Id3 +
+                '}';
     }
 }

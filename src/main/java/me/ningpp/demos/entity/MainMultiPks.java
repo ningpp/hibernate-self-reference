@@ -1,6 +1,9 @@
 package me.ningpp.demos.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -12,7 +15,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.Bag;
 
 @Entity
 @Table(name = "main_multi_pks")
@@ -55,19 +60,51 @@ public class MainMultiPks {
     private Set<DestTable2> destTable2s = new HashSet<>();
 
     @ManyToMany(targetEntity = DestTable4.class, cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-    @JoinTable(name = "middle_table4", 
-        joinColumns = {
-                @JoinColumn(name = "main_id1", referencedColumnName = "id1"),
-                @JoinColumn(name = "main_id2", referencedColumnName = "id2")
-        },
+    @JoinTable(name = "middle_table4",
+            joinColumns = {
+                    @JoinColumn(name = "main_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "main_id2", referencedColumnName = "id2")
+            },
 
-        inverseJoinColumns = {
-                @JoinColumn(name = "dest4_id1", referencedColumnName = "id1"),
-                @JoinColumn(name = "dest4_id2", referencedColumnName = "id2"),
-                @JoinColumn(name = "dest4_id3", referencedColumnName = "id3")
-        }
+            inverseJoinColumns = {
+                    @JoinColumn(name = "dest4_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "dest4_id2", referencedColumnName = "id2"),
+                    @JoinColumn(name = "dest4_id3", referencedColumnName = "id3")
+            }
     )
     private Set<DestTable4> destTable4s = new HashSet<>();
+
+    @Bag
+    @ManyToMany(targetEntity = DestTable5.class, cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+    @JoinTable(name = "middle_table5",
+            joinColumns = {
+                    @JoinColumn(name = "main_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "main_id2", referencedColumnName = "id2")
+            },
+
+            inverseJoinColumns = {
+                    @JoinColumn(name = "dest4_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "dest4_id2", referencedColumnName = "id2"),
+                    @JoinColumn(name = "dest4_id3", referencedColumnName = "id3")
+            }
+    )
+    private Collection<DestTable5> destTable5s = new ArrayList<>();
+
+    @OrderColumn(name = "order_column")
+    @ManyToMany(targetEntity = DestTable6.class, cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+    @JoinTable(name = "middle_table6",
+            joinColumns = {
+                    @JoinColumn(name = "main_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "main_id2", referencedColumnName = "id2")
+            },
+
+            inverseJoinColumns = {
+                    @JoinColumn(name = "dest4_id1", referencedColumnName = "id1"),
+                    @JoinColumn(name = "dest4_id2", referencedColumnName = "id2"),
+                    @JoinColumn(name = "dest4_id3", referencedColumnName = "id3")
+            }
+    )
+    private List<DestTable6> destTable6s = new ArrayList<>();
 
     @ManyToMany(targetEntity = DestTable3.class, cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
     @JoinTable(name = "middle_table3", 
@@ -90,7 +127,9 @@ public class MainMultiPks {
     public MainMultiPks(Integer id1, Integer id2, String name,
             Set<DestTable1> destTable1s, Set<DestTable2> destTable2s,
             Set<DestTable3> destTable3s,
-            Set<DestTable4> destTable4s) {
+            Set<DestTable4> destTable4s,
+            Collection<DestTable5> destTable5s,
+            List<DestTable6> destTable6s) {
         super();
         this.id1 = id1;
         this.id2 = id2;
@@ -99,6 +138,8 @@ public class MainMultiPks {
         this.destTable2s = destTable2s;
         this.destTable3s = destTable3s;
         this.destTable4s = destTable4s;
+        this.destTable5s = destTable5s;
+        this.destTable6s = destTable6s;
     }
 
     public static MainMultiPks build(int n) {
@@ -119,9 +160,17 @@ public class MainMultiPks {
         }
 
         Set<DestTable4> destTable4s = new HashSet<>();
+        Collection<DestTable5> destTable5s = new ArrayList<>();
+        List<DestTable6> destTable6s = new ArrayList<>();
         for (int i = 40001; i < 40004;i++) {
             destTable4s.add(new DestTable4(
-                    n + i + 1, n + i + 2, n + i + 3, 
+                    n + i + 1, n + i + 2, n + i + 3,
+                    UUID.randomUUID().toString()));
+            destTable5s.add(new DestTable5(
+                    n + i + 1, n + i + 2, n + i + 3,
+                    UUID.randomUUID().toString()));
+            destTable6s.add(new DestTable6(
+                    n + i + 1, n + i + 2, n + i + 3,
                     UUID.randomUUID().toString()));
         }
 
@@ -132,7 +181,9 @@ public class MainMultiPks {
                 destTable1s,
                 destTable2s,
                 destTable3s,
-                destTable4s
+                destTable4s,
+                destTable5s,
+                destTable6s
         ); 
     }
 
@@ -182,6 +233,22 @@ public class MainMultiPks {
 
     public void setDestTable4s(Set<DestTable4> destTable4s) {
         this.destTable4s = destTable4s;
+    }
+
+    public Collection<DestTable5> getDestTable5s() {
+        return destTable5s;
+    }
+
+    public void setDestTable5s(Collection<DestTable5> destTable5s) {
+        this.destTable5s = destTable5s;
+    }
+
+    public List<DestTable6> getDestTable6s() {
+        return destTable6s;
+    }
+
+    public void setDestTable6s(List<DestTable6> destTable6s) {
+        this.destTable6s = destTable6s;
     }
 
     public Set<DestTable3> getDestTable3s() {

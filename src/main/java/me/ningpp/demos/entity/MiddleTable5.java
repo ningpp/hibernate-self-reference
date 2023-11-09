@@ -8,13 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "middle_table4")
-public class MiddleTable4 {
+@Table(name = "middle_table5")
+public class MiddleTable5 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "middle4_id", nullable = false)
-    private Integer middle4Id;
+    @Column(name = "middle5_id", nullable = false)
+    private Integer middle5Id;
 
     @Column(name = "main_id1")
     private Integer mainId1;
@@ -31,11 +31,11 @@ public class MiddleTable4 {
     @Column(name = "dest4_id3")
     private Integer dest4Id3;
 
-    public MiddleTable4() {
+    public MiddleTable5() {
     }
 
-    public MiddleTable4(Integer middle4Id, Integer mainId1, Integer mainId2, Integer dest4Id1, Integer dest4Id2, Integer dest4Id3) {
-        this.middle4Id = middle4Id;
+    public MiddleTable5(Integer middle5Id, Integer mainId1, Integer mainId2, Integer dest4Id1, Integer dest4Id2, Integer dest4Id3) {
+        this.middle5Id = middle5Id;
         this.mainId1 = mainId1;
         this.mainId2 = mainId2;
         this.dest4Id1 = dest4Id1;
@@ -43,12 +43,12 @@ public class MiddleTable4 {
         this.dest4Id3 = dest4Id3;
     }
 
-    public Integer getMiddle4Id() {
-        return middle4Id;
+    public Integer getMiddle5Id() {
+        return middle5Id;
     }
 
-    public void setMiddle4Id(Integer middle4Id) {
-        this.middle4Id = middle4Id;
+    public void setMiddle5Id(Integer middle5Id) {
+        this.middle5Id = middle5Id;
     }
 
     public Integer getMainId1() {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="xml_configuration">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8" pattern="[%p][%processId][%d{yyyy-MM-dd HH:mm:ss.SSS}][%l]%m%n" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <appender-ref ref="Console" />
+        </Root>
+        <logger level="INFO" additivity="false" name="org.hibernate">
+            <appender-ref ref="Console" />
+        </logger>
+    </Loggers>
+</Configuration>

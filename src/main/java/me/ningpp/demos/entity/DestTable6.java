@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "dest_table4")
-public class DestTable4 {
+@Table(name = "dest_table6")
+public class DestTable6 {
     @Id
     @Column(name = "id1")
     private Integer id1;
@@ -23,10 +23,10 @@ public class DestTable4 {
     @Column(name = "name")
     private String name;
 
-    public DestTable4() {
+    public DestTable6() {
     }
 
-    public DestTable4(Integer id1, Integer id2, Integer id3, String name) {
+    public DestTable6(Integer id1, Integer id2, Integer id3, String name) {
         super();
         this.id1 = id1;
         this.id2 = id2;
@@ -68,7 +68,7 @@ public class DestTable4 {
 
     @Override
     public String toString() {
-        return "DestTable4 [id1=" + id1 + ", id2=" + id2 + ", id3=" + id3
+        return "DestTable6 [id1=" + id1 + ", id2=" + id2 + ", id3=" + id3
                 + ", name=" + name + "]";
     }
 
@@ -76,7 +76,7 @@ public class DestTable4 {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DestTable4 that = (DestTable4) o;
+        DestTable6 that = (DestTable6) o;
         return Objects.equals(id1, that.id1) && Objects.equals(id2, that.id2) && Objects.equals(id3, that.id3);
     }
 
