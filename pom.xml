@@ -13,7 +13,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- dependencies versions -->
         <h2.version>2.2.220</h2.version>
-        <hibernate.version>6.4.0.CR1</hibernate.version>
+        <hibernate.version>7.0.0.Beta1</hibernate.version>
         <jaxb.version>4.0.2</jaxb.version>
         <junit-jupiter.version>5.10.1</junit-jupiter.version>
         <log4j2.version>2.20.0</log4j2.version>
@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
+            <artifactId>hibernate-processor</artifactId>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
@@ -117,7 +117,7 @@
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.hibernate.orm</groupId>
-                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <artifactId>hibernate-processor</artifactId>
                             <version>${hibernate.version}</version>
                         </path>
                     </annotationProcessorPaths>
